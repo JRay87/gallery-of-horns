@@ -1,3 +1,8 @@
 body {
-  background-color: blanchedalmond;
+  background-color: rgb(54, 54, 54);
+}
+
+h1 {
+  color: antiquewhite;
+  font-size: 5vw;
 }
