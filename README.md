@@ -27,3 +27,13 @@ Start time: __1715___
 Finish time: __1850___
 
 Actual time needed to complete: __1hr45mins___
+
+### Number and name of feature: Feature 4: Modal
+
+Estimate of time needed to complete: __2Hrs___
+
+Start time: __1600___
+
+Finish time: __1830___
+
+Actual time needed to complete: _2.5hrs____
