@@ -2,55 +2,46 @@ import React from "react";
 import Header from './Header';
 import Main from "./Main";
 import Footer from "./Footer";
-import Modal from 'react-bootstrap/Modal'
 import data from './data.json';
+import SelectBeast from "./SelectBeast";
+import HornedBeast from "./HornedBeast";
 import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
-      selectedBeast: '',
-      selectedBeastImg:''
+      showModal: false
     };
   };
 
-  handleOnHide = () => {
-    this.setState({
-      showModal: false
-    });
-  };
+
 
   handleOnShowModal = (title, image_url) => {
     this.setState({
-      showModal: true,
+      showModal: false,
       selectedBeast: title,
       selectedBeastImg: image_url
     });
   };
 
 
+
   render() {
     return (
       <>
         <Header />
-        <Main
-          data={data}
-          handleOnShowModal={this.handleOnShowModal}
-        />
+          <Main
+            data={data}
+          />
+          <HornedBeast
+            handleOnShowModal={this.handleOnShowModal}
+          />
+          <SelectBeast
+            data={data}
+            handleOnShowModal={this.handleOnShowModal}
+          />
         <Footer />
-        <Modal 
-        show={this.state.showModal} 
-        onHide={this.handleOnHide}
-        style={{ width: '100%' }}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>{this.state.selectedBeast}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <img className='img-fluid' src={this.state.selectedBeastImg} alt={this.state.selectedBeast} /></Modal.Body>  
-        </Modal>
       </>
     );
   }

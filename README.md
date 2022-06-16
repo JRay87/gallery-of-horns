@@ -34,6 +34,6 @@ Estimate of time needed to complete: __2Hrs___
 
 Start time: __1600___
 
-Finish time: __1830___
+Finish time: __2324-incomplete___
 
-Actual time needed to complete: _2.5hrs____
+Actual time needed to complete: ___ongoing__
