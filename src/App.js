@@ -11,20 +11,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
+      selectedBeast: '',
+      selectedBeastImage: ''
     };
   };
 
-
-
-  handleOnShowModal = (title, image_url) => {
+  handleOnHide = () => {
     this.setState({
-      showModal: false,
-      selectedBeast: title,
-      selectedBeastImg: image_url
+      showModal: false
     });
   };
 
+  handleOnShowModal = (title, img_url) => {
+    this.setState({
+      showModal: true,
+      selectedBeast: title, 
+      selectedBeastImage: img_url
+    });
+  };
 
 
   render() {
@@ -33,13 +38,18 @@ class App extends React.Component {
         <Header />
           <Main
             data={data}
-          />
-          <HornedBeast
             handleOnShowModal={this.handleOnShowModal}
           />
+
+            <HornedBeast
+            handleOnShowModal={this.handleOnShowModal}
+            />
+
+
           <SelectBeast
-            data={data}
             handleOnShowModal={this.handleOnShowModal}
+            handleOnHide={this.handleOnHide}
+            selectedBeast={this.state.selectedBeast}
           />
         <Footer />
       </>

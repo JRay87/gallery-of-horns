@@ -6,33 +6,29 @@ class SelectBeast extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showModal: false,
+            showModal: true ,
             selectedBeast: '',
             selectedBeastImg: '',
         };
     };
 
-    handleOnHide = () => {
-        this.setState({
-          showModal: false
-        });
-      };
+
 
     render() {
         return (
-            <>
+            <div>
                 <Modal
-                    show={this.props.handleOnShowModal}
-                    onHide={this.handleOnHide}
+                    show={this.state.ShowModal}
+                    onHide={this.props.handleOnHide}
                 >
                     <Modal.Header closeButton>
-                        <Modal.Title>{this.props.selectedBeast}</Modal.Title>
+                        <Modal.Title>{this.props.title}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <img className='img-fluid' src={this.props.selectedBeastImg} alt={this.selectedBeast} />
+                        <img className='img-fluid' src={this.props.img_url} alt={this.props.description} />
                     </Modal.Body>
                 </Modal>
-            </>
+            </div>
         );
     }
 }
