@@ -4,7 +4,6 @@ import Main from "./Main";
 import Footer from "./Footer";
 import data from './data.json';
 import SelectBeast from "./SelectBeast";
-import HornedBeast from "./HornedBeast";
 import './App.css';
 
 class App extends React.Component {
@@ -17,20 +16,20 @@ class App extends React.Component {
     };
   };
 
+  
+  handleOnShowModal = (title) => {
+    this.setState({
+      showModal: true,
+      selectedBeast: title, 
+      // selectedBeastImage: image_url
+    });
+  };
+  
   handleOnHide = () => {
     this.setState({
       showModal: false
     });
   };
-
-  handleOnShowModal = (title, img_url) => {
-    this.setState({
-      showModal: true,
-      selectedBeast: title, 
-      selectedBeastImage: img_url
-    });
-  };
-
 
   render() {
     return (
@@ -41,13 +40,8 @@ class App extends React.Component {
             handleOnShowModal={this.handleOnShowModal}
           />
 
-            <HornedBeast
-            handleOnShowModal={this.handleOnShowModal}
-            />
-
-
           <SelectBeast
-            handleOnShowModal={this.handleOnShowModal}
+            showModal={this.state.showModal}
             handleOnHide={this.handleOnHide}
             selectedBeast={this.state.selectedBeast}
           />
